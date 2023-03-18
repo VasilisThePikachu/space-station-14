@@ -41,3 +41,10 @@
   description: trait-muted-desc
   components:
     - type: Muted
+
+- type: trait
+  id: Nearsighted
+  name: trait-nearsighted-name
+  description: trait-nearsighted-desc
+#  components:
+#    - type: Nearsighted

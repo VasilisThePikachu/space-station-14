@@ -76,3 +76,8 @@
   id: Stealth
   kind: source
   path: "/Textures/Shaders/stealth.swsl"
+
+- type: shader
+  id: Nearsighted
+  kind: source
+  path: "/Textures/Shaders/nearsighted.swsl"

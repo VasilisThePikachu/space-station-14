@@ -19,3 +19,6 @@ trait-muted-desc = You can't speak
 
 trait-paracusia-name = Paracusia
 trait-paracusia-desc = You hear sounds that aren't really there
+
+trait-nearsighted-name = Nearsighted
+trait-nearsighted-desc = You can't see far away objects well, luckily you have a pair of glasses with you
