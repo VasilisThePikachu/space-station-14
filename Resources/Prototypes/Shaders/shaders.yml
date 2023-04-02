@@ -81,3 +81,6 @@
   id: Nearsighted
   kind: source
   path: "/Textures/Shaders/nearsighted.swsl"
+  params:
+    circle_radius: 0.2
+    blur_radius: 0.05

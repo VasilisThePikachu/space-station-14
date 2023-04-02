@@ -1,0 +1,23 @@
+uniform highp float circle_radius;
+uniform highp float blur_radius;
+
+void fragment() {
+    // Calculate the distance from the current pixel to the center of the screen
+    highp vec2 screen_center = vec2(0.5, 0.5);
+    highp float distance_to_center = distance(SCREEN_UV, screen_center);
+
+    // Calculate the size of the circle, based on the circle_radius parameter
+    highp float circle_size = smoothstep(circle_radius, circle_radius - blur_radius, distance_to_center);
+
+    // Apply a blur effect to the edges of the circle, based on the blur_radius parameter
+    highp float blur_amount = smoothstep(circle_radius - blur_radius, circle_radius + blur_radius, distance_to_center);
+    blur_amount = mix(1.0, blur_amount, circle_size);
+
+    // Set the pixel color to transparent if it's outside the circle, or blurred if it's inside the circle
+    if (distance_to_center > circle_radius) {
+        COLOR = vec4(0.0, 0.0, 0.0, 0.0);
+    } else {
+        highp vec4 pixel_color = texture2D(TEXTURE, SCREEN_UV);
+        COLOR = vec4(pixel_color.rgb, pixel_color.a * blur_amount);
+    }
+}
