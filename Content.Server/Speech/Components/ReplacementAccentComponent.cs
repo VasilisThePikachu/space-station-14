@@ -13,6 +13,7 @@ namespace Content.Server.Speech.Components
         /// <summary>
         ///     If this array is non-null, the full text of anything said will be randomly replaced with one of these words.
         /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
         [DataField("fullReplacements")]
         public string[]? FullReplacements;
 
@@ -20,6 +21,7 @@ namespace Content.Server.Speech.Components
         ///     If this dictionary is non-null and <see cref="FullReplacements"/> is null, any keys surrounded by spaces
         ///     (words) will be replaced by the value, attempting to intelligently keep capitalization.
         /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
         [DataField("wordReplacements")]
         public Dictionary<string, string>? WordReplacements;
     }
@@ -30,6 +32,7 @@ namespace Content.Server.Speech.Components
     [RegisterComponent]
     public sealed partial class ReplacementAccentComponent : Component
     {
+        [ViewVariables(VVAccess.ReadWrite)]
         [DataField("accent", customTypeSerializer: typeof(PrototypeIdSerializer<ReplacementAccentPrototype>), required: true)]
         public string Accent = default!;
     }

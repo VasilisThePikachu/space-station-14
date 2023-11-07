@@ -9,9 +9,11 @@ namespace Content.Server.Nutrition.Components;
 [RegisterComponent, Access(typeof(FoodSystem))]
 public sealed partial class FoodComponent : Component
 {
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public string Solution = "food";
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public SoundSpecifier UseSound = new SoundPathSpecifier("/Audio/Items/eatfood.ogg");
 
@@ -30,6 +32,7 @@ public sealed partial class FoodComponent : Component
     /// <summary>
     /// Is utensil required to eat this food
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public bool UtensilRequired;
 
@@ -39,6 +42,7 @@ public sealed partial class FoodComponent : Component
     ///     rather than just being digestible by anything that can eat food.
     ///     Whitelist the food component to allow eating of normal food.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public bool RequiresSpecialDigestion;
 
@@ -46,6 +50,7 @@ public sealed partial class FoodComponent : Component
     ///     Stomachs required to digest this entity.
     ///     Used to simulate 'ruminant' digestive systems (which can digest grass)
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public int RequiredStomachs = 1;
 
@@ -58,6 +63,7 @@ public sealed partial class FoodComponent : Component
     /// <summary>
     /// How long it takes to eat the food personally.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public float Delay = 1;
 
@@ -65,6 +71,7 @@ public sealed partial class FoodComponent : Component
     ///     This is how many seconds it takes to force feed someone this food.
     ///     Should probably be smaller for small items like pills.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public float ForceFeedDelay = 3;
 }

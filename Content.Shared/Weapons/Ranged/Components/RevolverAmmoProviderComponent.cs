@@ -16,14 +16,18 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
      * for example 7 entities when revolver spawns (1 for the revolver and 6 cylinders) we can instead defer it.
      */
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("whitelist")]
     public EntityWhitelist? Whitelist;
 
+    [ViewVariables(VVAccess.ReadWrite)]
     public Container AmmoContainer = default!;
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("currentSlot")]
     public int CurrentIndex;
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("capacity")]
     public int Capacity = 6;
 
@@ -31,21 +35,27 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
     // AmmoSlots is the instantiated ammo and Chambers is the unspawned ammo (that may or may not have been shot).
 
     // TODO: Using an array would be better but this throws!
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("ammoSlots")]
     public List<EntityUid?> AmmoSlots = new();
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("chambers")]
     public bool?[] Chambers = Array.Empty<bool?>();
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("proto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? FillPrototype = "CartridgeMagnum";
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("soundEject")]
     public SoundSpecifier? SoundEject = new SoundPathSpecifier("/Audio/Weapons/Guns/MagOut/revolver_magout.ogg");
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("soundInsert")]
     public SoundSpecifier? SoundInsert = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
 
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("soundSpin")]
     public SoundSpecifier? SoundSpin = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/revolver_spin.ogg");
 }

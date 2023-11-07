@@ -15,12 +15,14 @@ public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComp
     /// <summary>
     /// The slot that the ammo provider should be located in.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("targetSlot", required: true)]
     public SlotFlags TargetSlot;
 
     /// <summary>
     /// A whitelist for determining whether or not an ammo provider is valid.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("providerWhitelist")]
     public EntityWhitelist? ProviderWhitelist;
 }

@@ -5,14 +5,15 @@ public abstract partial class BatteryAmmoProviderComponent : AmmoProviderCompone
     /// <summary>
     /// How much battery it costs to fire once.
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     [DataField("fireCost")]
     public float FireCost = 100;
 
     // Batteries aren't predicted which means we need to track the battery and manually count it ourselves woo!
 
-    [ViewVariables]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int Shots;
 
-    [ViewVariables]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int Capacity;
 }
